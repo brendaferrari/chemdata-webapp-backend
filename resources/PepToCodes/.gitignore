@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Outputs
+smiles_output.txt
+
+# vscode
+.vscode
+
+# database
+resources/norineDB.xml
+resources/norineDBflat.xml
+
+# development
+functionalities/pubchemdb.py
+functionalities/extras.py
+images.py
