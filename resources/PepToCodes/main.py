@@ -30,7 +30,7 @@ if database == 'norine'.lower():
 # print('\nDo you wish to transform one aminoacid of a kfile? Type a to one aminoacid or f for a file.')
 answer = sys.argv[3]
 
-if answer.lower() == "string":
+if answer.lower() == "smiles":
     print()
     smiles = sys.argv[4]
 
