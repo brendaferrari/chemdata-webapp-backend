@@ -22,7 +22,6 @@ const runPyScriptPepToCodes = async (path, db, code, type, smiles) => {
         args: [db, code, type, smiles]
         // args: ['peptocodes', 'one letter code', 'smiles', 'N[C@@]([H])(CCCNC(=N)N)C(=O)N[C@@]([H])([C@]([H])(O)C)C(=O)N[C@@]([H])(CCCCN)C(=O)N[C@@]([H])(CCCNC(=N)N)C(=O)O']
     };
-    console.log(db, code, type, smiles)
     const res = await PythonShell.run(path, options)
     console.log(res)
 
@@ -34,16 +33,9 @@ const handlePeptocodes = (body) => {
     return runPepToCodes(body)
 }
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'))
-// })
-
-
 app.post('/peptocodes', async (req, res) => {
     const body = req.body
-    console.log('body: ', body)
     const result = await handlePeptocodes(body)
-    console.log(result)
     res.json({ result })
 })
 
@@ -65,3 +57,8 @@ app.listen(8080, () => {
 
 //     return res
 // }
+
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'))
+// })

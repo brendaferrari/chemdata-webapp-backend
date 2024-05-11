@@ -22,10 +22,10 @@ if database == 'peptocodes'.lower():
 
 # tprint('PepToCodes', font='3d_diagonal')
 
-if database == 'norine'.lower():
-    print('You are using Norine database which is freely available to everybody.\n')
-    print('\033[1m' + 'Norine: update of the nonribosomal peptide resource. Areski Flissi, Emma Ricart, Clémentine Campart, Mickaël Chevalier, Yoann Dufresne, Juraj Michalik, Philippe Jacques, Christophe Flahaut, Frédéric Lisacek, Valérie Leclère and Maude Pupin. Nucleic Acids Research, Nov. 2019, gkz1000, https://doi.org/10.1093/nar/gkz1000')
-    print('\033[0m')
+# if database == 'norine'.lower():
+    # print('You are using Norine database which is freely available to everybody.\n')
+    # print('\033[1m' + 'Norine: update of the nonribosomal peptide resource. Areski Flissi, Emma Ricart, Clémentine Campart, Mickaël Chevalier, Yoann Dufresne, Juraj Michalik, Philippe Jacques, Christophe Flahaut, Frédéric Lisacek, Valérie Leclère and Maude Pupin. Nucleic Acids Research, Nov. 2019, gkz1000, https://doi.org/10.1093/nar/gkz1000')
+    # print('\033[0m')
 
 # print('\nDo you wish to transform one aminoacid of a kfile? Type a to one aminoacid or f for a file.')
 answer = sys.argv[3]
