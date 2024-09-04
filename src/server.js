@@ -35,12 +35,44 @@ const handlePeptocodes = (body) => {
 
 app.post('/peptocodes', async (req, res) => {
     const body = req.body
+    console.log(body)
     const result = await handlePeptocodes(body)
     res.json({ result })
 })
 
 app.listen(8080, () => {
     console.log('Server is listening on port 8080')
+})
+
+
+const runHta = (body) => {
+    return runPyScriptHta('resources\\HeadTailAssign\\main.py', body.checkSmiles, body.inputSmiles)
+}
+
+const runPyScriptHta = async (path, type, smiles) => {
+    const options = {
+        mode: 'text',
+        pythonPath: 'C:\\Users\\brend\\miniconda3\\envs\\webpage_chemdata\\python.exe',
+        pythonOptions: ['-u'], // get print results in real-time
+        args: [type, smiles]
+        // args: ['smiles', 'N[C@@]([H])(CCCNC(=N)N)C(=O)N[C@@]([H])([C@]([H])(O)C)C(=O)N[C@@]([H])(CCCCN)C(=O)N[C@@]([H])(CCCNC(=N)N)C(=O)O']
+    };
+    const res = await PythonShell.run(path, options)
+    console.log(res)
+
+    return res
+}
+
+const handleHta = (body) => {
+
+    return runHta(body)
+}
+
+app.post('/hta', async (req, res) => {
+    const body = req.body
+    console.log(body)
+    const result = await handleHta(body)
+    res.json({ result })
 })
 
 

@@ -52,43 +52,43 @@ if answer.lower() == "smiles":
         print("Unfortunately your code could not be recognized. Please, verify your code or contact the developers.")
 
 # BUG ON PATTERN RECONGITION FOR FILE
-# elif answer.lower() == "f":
-#     smiles = input('Type your file name with path: ')
+elif answer.lower() == "SMILES file":
+    smiles = sys.argv[4]
 
-#     dictio = Dictionary()
+    dictio = Dictionary()
     
-#     df = pd.read_csv(smiles)
-#     aacode = []
-#     notaaCode = []
-#     aasmiles = []
-#     countlen = []
-#     count = 0
-#     for row in df.itertuples():
-#         aasmiles.append(row[1])
+    df = pd.read_csv(smiles)
+    aacode = []
+    notaaCode = []
+    aasmiles = []
+    countlen = []
+    count = 0
+    for row in df.itertuples():
+        aasmiles.append(row[1])
 
-#         if database == 'peptocodes'.lower():
-#             peptocode = PeptoCode(row[1], dictio.dict_csv(one_code, three_code))
-#         elif database == 'norine'.lower():
-#             peptocode = PeptoCode(row[1], dictio.dict_json())
-#         code, notCode = peptocode.count_and_change()
-#         aacode.append(code)
-#         notaaCode.append(notCode)
+        if database == 'peptocodes'.lower():
+            peptocode = PeptoCode(row[1], dictio.dict_csv(one_code, three_code))
+        elif database == 'norine'.lower():
+            peptocode = PeptoCode(row[1], dictio.dict_json())
+        code, notCode = peptocode.count_and_change()
+        aacode.append(code)
+        notaaCode.append(notCode)
 
-#         count += 1
-#         countlen.append(count)
+        count += 1
+        countlen.append(count)
 
-#     variables = zip(aasmiles, aacode, notaaCode)
-#     variablesDataframe = dict(zip(countlen, variables))
+    variables = zip(aasmiles, aacode, notaaCode)
+    variablesDataframe = dict(zip(countlen, variables))
 
-#     dataframe = Dataframe(variablesDataframe)
-#     data = dataframe.create_dataframe(columns=('smiles', 'code', 'not recognized'))
-#     data.to_csv('smiles_output.txt')
+    dataframe = Dataframe(variablesDataframe)
+    data = dataframe.create_dataframe(columns=('smiles', 'code', 'not recognized'))
+    data.to_csv('smiles_output.txt')
 
-#     if aacode != "*":
-#         print("smiles_output.txt was saved successfully.")
-#         if notaaCode:
-#             print(f"Some codes were not recognized: {notaaCode}")
-#         else:
-#             print(f"All codes were analyzed and recognized.")
-#     else:
-#         print("Unfortunately your code could not be recognized. Please, verify your code or contact the developers.")
+    if aacode != "*":
+        print("smiles_output.txt was saved successfully.")
+        if notaaCode:
+            print(f"Some codes were not recognized: {notaaCode}")
+        else:
+            print(f"All codes were analyzed and recognized.")
+    else:
+        print("Unfortunately your code could not be recognized. Please, verify your code or contact the developers.")

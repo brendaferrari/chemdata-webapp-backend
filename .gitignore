@@ -1,0 +1,8 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Data
+results.csv
+
+# Folder
+output-directory/
