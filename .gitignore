@@ -6,3 +6,9 @@ results.csv
 
 # Folder
 output-directory/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+chemdata-server.zip

@@ -18,12 +18,12 @@ class Dictionary:
         """
 
         if code == "one letter code":
-            codes_db = pd.read_csv("resources\\PepToCodes\\resources\\codes.csv", sep=' ', names=['name', 'smiles', '3lcode', '1lcode'], 
+            codes_db = pd.read_csv("resources/PepToCodes/resources/codes.csv", sep=' ', names=['name', 'smiles', '3lcode', '1lcode'], 
                         usecols= ['smiles', '1lcode'], index_col=0, header=None).squeeze("columns")  
             dictio_db = codes_db.to_dict()      
         
         elif code == "three letter code":
-            codes_db = pd.read_csv("resources\\PepToCodes\\resources\\codes.csv", sep=' ', names=['name', 'smiles', '3lcode', '1lcode'], 
+            codes_db = pd.read_csv("resources/PepToCodes/resources/codes.csv", sep=' ', names=['name', 'smiles', '3lcode', '1lcode'], 
                         usecols= ['smiles', '3lcode'], index_col=0, header=None).squeeze("columns")
             dictio_db = codes_db.to_dict()         
 
@@ -38,7 +38,7 @@ class Dictionary:
         """
 
         if canonical is True:
-            with open("resources\\PepToCodes\\resources\\norineDB.json", "r") as r:
+            with open("resources/PepToCodes/resources/norineDB.json", "r") as r:
                 data = json.load(r)
 
                 canonicalSmiles = []
